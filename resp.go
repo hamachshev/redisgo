@@ -82,6 +82,7 @@ func (r *Resp) Read() (Value, error) {
 
 func (r *Resp) readArray() (Value, error) {
 	v := Value{}
+	v.typ = "array"
 	length, _, err := r.readInteger()
 
 	if err != nil {
@@ -106,6 +107,7 @@ func (r *Resp) readArray() (Value, error) {
 
 func (r *Resp) readBulk() (Value, error) {
 	v := Value{}
+	v.typ = "bulk"
 
 	length, _, err := r.readInteger()
 
